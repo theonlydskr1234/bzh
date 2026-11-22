@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niklas ❤️ Maja</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #140e19;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 15% 20%, #71304f55, transparent 40%),
+        radial-gradient(circle at 85% 70%, #59306d55, transparent 40%),
+        #140e19;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #ff78a9;
+}
+
+nav a {
+    color: #e8d6e0;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #ff78a9;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 70px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-photo {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ff78a9;
+    box-shadow: 0 0 50px #ff78a955;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    color: #ff9cbe;
+    letter-spacing: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(50px, 10vw, 100px);
+    margin: 20px 0;
+}
+
+h1 span {
+    color: #ff78a9;
+}
+
+.description {
+    color: #d8c5d2;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: auto;
+}
+
+.since {
+    display: inline-block;
+    padding: 15px 25px;
+    margin-top: 30px;
+    border: 1px solid #ff78a9;
+    border-radius: 50px;
+    background: #ff78a918;
+    color: #ffb4cd;
+}
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 45px);
+    margin-bottom: 15px;
+}
+
+.section-description {
+    text-align: center;
+    color: #cbb5c5;
+    margin-bottom: 45px;
+    line-height: 1.7;
+}
+
+.cards {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 35px;
+    text-align: center;
+    background: #ffffff0d;
+    border: 1px solid #ffffff20;
+    border-radius: 22px;
+    backdrop-filter: blur(10px);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #ff78a9;
+}
+
+.avatar {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #cbb5c5;
+    line-height: 1.7;
+}
+
+/* Beziehungszähler */
+
+.counter-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 45px 20px;
+    background: #ffffff0d;
+    border: 1px solid #ffffff20;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.counter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.number {
+    color: #ff9cbe;
+    font-size: clamp(30px, 6vw, 48px);
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
+.unit {
+    color: #cbb5c5;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Fotogalerie */
+
+.gallery {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.photo-card {
+    padding: 12px;
+    background: #ffffff0d;
+    border: 1px solid #ffffff20;
+    border-radius: 20px;
+    transition: .4s;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff78a9;
+    box-shadow: 0 15px 40px #ff78a922;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+.photo-card p {
+    text-align: center;
+    padding: 18px 5px 8px;
+    color: #e8cbd9;
+}
+
+/* Liebesbotschaft */
+
+.message {
+    max-width: 800px;
+    margin: auto;
+    padding: 55px 35px;
+    text-align: center;
+    background: #ffffff0d;
+    border: 1px solid #ffffff20;
+    border-radius: 25px;
+    line-height: 2;
+    color: #e8d6e0;
+}
+
+.message .heart {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.message p {
+    margin-top: 20px;
+}
+
+.message strong {
+    color: #ff9cbe;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #b99eaf;
+}
+
+footer span {
+    color: #ff78a9;
+}
+
+/* Bewegliche Herzen */
+
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+    color: #ff78a9;
+    opacity: .2;
+    pointer-events: none;
+    z-index: -1;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 650px) {
+    nav {
+        padding: 20px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .hero-photo {
+        width: 180px;
+        height: 180px;
+    }
+
+    .cards, .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .counter {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .photo-card img {
+        height: 380px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- Navigation -->
+
+<nav>
+    <div class="logo">N <span>♥</span> M</div>
+
+    <div>
+        <a href="#wir">Wir</a>
+        <a href="#zeit">Unsere Zeit</a>
+        <a href="#fotos">Fotos</a>
+    </div>
+</nav>
+
+<!-- Startseite -->
+
+<header class="hero">
+    <div class="hero-content">
+
+        <img src="bild1.jpg"
+             class="hero-photo"
+             alt="Niklas und Maja">
+
+        <p class="subtitle">
+            Unsere gemeinsame Geschichte
+        </p>
+
+        <h1>
+            Niklas <span>&</span> Maja
+        </h1>
+
+        <p class="description">
+            Zwei Menschen, eine gemeinsame Geschichte
+            und hoffentlich noch unendlich viele
+            schöne Momente zusammen.
+
+            Schön, dass es uns gibt. ❤️
+        </p>
+
+        <div class="since">
+            Zusammen seit dem 14. Juli 2026 ❤️
+        </div>
+
+    </div>
+</header>
+
+<!-- Über uns -->
+
+<section id="wir">
+
+    <h2 class="section-title">Das sind wir</h2>
+
+    <p class="section-description">
+        Zwei Geburtstage und ein ganz besonderes Datum.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="avatar">🌙</div>
+            <h3>Niklas</h3>
+            <p>Geboren am 11.04.2012</p>
+        </div>
+
+        <div class="card">
+            <div class="avatar">🌷</div>
+            <h3>Maja</h3>
+            <p>Geboren am 24.07.2012</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Beziehungszähler -->
+
+<section id="zeit">
+
+    <h2 class="section-title">
+        Unsere gemeinsame Zeit
+    </h2>
+
+    <p class="section-description">
+        Seit dem 14.07.2026 schreiben wir unsere eigene Geschichte. ❤️
+    </p>
+
+    <div class="counter-box">
+
+        <p>Wir sind zusammen seit:</p>
+
+        <div class="counter">
+
+            <div>
+                <div class="number" id="days">0</div>
+                <div class="unit">Tage</div>
+            </div>
+
+            <div>
+                <div class="number" id="hours">0</div>
+                <div class="unit">Stunden</div>
+            </div>
+
+            <div>
+                <div class="number" id="minutes">0</div>
+                <div class="unit">Minuten</div>
+            </div>
+
+            <div>
+                <div class="number" id="seconds">0</div>
+                <div class="unit">Sekunden</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Fotos -->
+
+<section id="fotos">
+
+    <h2 class="section-title">
+        Unsere Erinnerungen 📸
+    </h2>
+
+    <p class="section-description">
+        Ein paar unserer gemeinsamen Momente.
+        Und hoffentlich kommen noch viele dazu. ❤️
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="bild1.jpg" alt="Niklas und Maja">
+            <p>Einfach wir zwei. ❤️</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="bild2.jpg" alt="Niklas und Maja zusammen">
+            <p>Eine Erinnerung für immer. 💗</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Liebesbotschaft -->
+
+<section>
+
+    <div class="message">
+
+        <div class="heart">💗</div>
+
+        <h2 class="section-title">
+            Für Maja
+        </h2>
+
+        <p>
+            Ich bin froh, dich an meiner Seite zu haben.
+            Jeder gemeinsame Moment ist etwas Besonderes
+            und ich freue mich auf alles, was noch kommt.
+
+            Ich hoffe, wir sammeln noch ganz viele
+            Erinnerungen, lachen zusammen und erleben
+            viele schöne Dinge.
+
+        </p>
+
+        <p>
+            <strong>
+                Auf uns und auf unsere gemeinsame Zukunft. ❤️
+            </strong>
+        </p>
+
+        <p>
+            In Liebe, Niklas ❤️
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    Mit <span>♥</span> gemacht von Niklas für Maja
+</footer>
+
+<script>
+
+// Startdatum der Beziehung
+const startDate = new Date(2026, 6, 14, 0, 0, 0);
+
+function updateCounter() {
+
+    const now = new Date();
+
+    let difference = Math.max(0, now - startDate);
+
+    const days = Math.floor(difference / 86400000);
+    difference %= 86400000;
+
+    const hours = Math.floor(difference / 3600000);
+    difference %= 3600000;
+
+    const minutes = Math.floor(difference / 60000);
+    difference %= 60000;
+
+    const seconds = Math.floor(difference / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+
+// Bewegliche Herzen im Hintergrund
+
+for (let i = 0; i < 20; i++) {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.innerHTML = "♥";
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (12 + Math.random() * 15) + "s";
+
+    heart.style.animationDelay =
+        (-Math.random() * 20) + "s";
+
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
